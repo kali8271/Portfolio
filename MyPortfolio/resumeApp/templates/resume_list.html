@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>My Resumes</h2>
+
+{% if resumes %}
+    <ul>
+        {% for resume in resumes %}
+            <li>
+                {{ resume.resume_file.name }} - Uploaded on {{ resume.uploaded_at }}
+                <a href="{% url 'download_resume' resume.id %}" class="btn btn-primary">Download</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No resumes uploaded yet.</p>
+{% endif %}
+
+<a href="{% url 'upload_resume' %}" class="btn btn-success">Upload New Resume</a>
+{% endblock %}

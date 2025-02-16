@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content1 %}
+<div class="row my-5">
+    <div class="col-4 d-flex justify-content-center align-items-center">
+        {% for about in about_data %}
+            {% if about.profile_image %}
+                <img src="{{ about.profile_image.url }}" alt="Profile Image" class="about_image rounded-circle">
+            {% else %}
+                <img src="{% static 'profile_images/default.jpg' %}" alt="Default Image" class="about_image rounded-circle">
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="col-7 text-left text-light">
+        <h2>Hello!</h2>
+        {% for about in about_data  %}
+            <h4>{{ about.user }}</h4>
+            <p class="fs-5">{{ about.bio }}</p>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Tech Stack Section -->
+<div class="row my-2">
+    <h2 class="text-center" style="color:#4fffb0">My Tech Stack</h2>
+
+    <div class="d-flex justify-content-around align-items-center">
+        {% for tech in tech_stack %}
+            <img src="{{ tech.image.url }}" width="70" height="70" alt="{{ tech.name }} Logo" class="img-fluid">
+        {% empty %}
+            <p class="text-center text-light">No technologies added yet.</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content1 %}

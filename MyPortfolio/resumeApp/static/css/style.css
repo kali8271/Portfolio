@@ -1,0 +1,246 @@
+/* General Styles */
+body {
+    background-color: rgb(3, 56, 78);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Navbar Styles */
+.navbar-nav .nav-link:hover {
+    font-weight: bold;
+    color: #4fffb0;
+    transition: 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link {
+    font-size: 20px;
+}
+
+.navbar-brand {
+    font-size: 25px;
+}
+
+.navbar-dark {
+    background-color: rgb(18, 1, 46);
+}
+
+/* About Section */
+.about-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 50px 0;
+}
+
+.about-text {
+    max-width: 600px;
+    text-align: left;
+}
+
+.about-text h2 {
+    color: #4fffb0;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.about-text p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #ddd;
+}
+
+/* Profile Image Styling */
+.circular-image-container {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 3px solid #4fffb0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 10px rgba(79, 255, 176, 0.5);
+}
+
+.circular-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Animated Profile Image */
+.about_image {
+    width: 220px;
+    height: auto;
+    display: block;
+    border-radius: 50%;
+    border: 3px solid #4fffb0;
+    transition: transform 0.3s ease-in-out;
+}
+
+.about_image:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(79, 255, 176, 0.8);
+}
+
+/* Name & Title */
+.name {
+    color: #0fdd2b;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.title {
+    color: #ff4f4f;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* Social Links */
+.social_links {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social_links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #4fffb0;
+    color: white;
+    font-size: 20px;
+    transition: 0.3s ease-in-out;
+}
+
+.social_links a:hover {
+    background-color: #4fffb0;
+    color: rgb(3, 56, 78);
+}
+
+/* Tech Stack Section */
+.tech-stack {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.tech-stack h2 {
+    color: #4fffb0;
+    font-size: 26px;
+}
+
+.tech-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.tech-icons img {
+    width: 70px;
+    height: 70px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.tech-icons img:hover {
+    transform: scale(1.2);
+}
+
+/* Jumbotron Section */
+.jumbotron {
+    background-color: #002244;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-text {
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .circular-image-container {
+        margin-bottom: 15px;
+    }
+}
+/* Tech Stack Section */
+.tech-stack {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.tech-stack h2 {
+    color: #4fffb0;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Container for Icons */
+.tech-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 15px;
+    padding: 0 10px;
+}
+
+/* Individual Icon Styling */
+.tech-icons .tech-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90px; /* Fixed width for consistent layout */
+}
+
+.tech-icons img {
+    width: 75px;
+    height: 75px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border-radius: 10px;
+    border: 2px solid transparent; /* Border added for hover effect */
+}
+
+.tech-icons img:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(79, 255, 176, 0.8);
+    border-color: #4fffb0;
+}
+
+/* Tech Name Under Icon */
+.tech-icons .tech-name {
+    margin-top: 8px;
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .tech-icons {
+        gap: 15px;
+    }
+    
+    .tech-icons img {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .tech-icons .tech-name {
+        font-size: 12px;
+    }
+}
+
