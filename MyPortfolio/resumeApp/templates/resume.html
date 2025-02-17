@@ -3,17 +3,22 @@
 {% block content %}
 <h2>My Resumes</h2>
 
+<!-- Debugging Output -->
+<pre>Resumes: {{ resumes }}</pre>
+
 {% if resumes %}
+    <p>✅ Resumes Found!</p>
     <ul>
         {% for resume in resumes %}
             <li>
-                {{ resume.resume_file.name }} - Uploaded on {{ resume.uploaded_at }}
+                <strong>Resume File:</strong> {{ resume.resume_file.name }} <br>
+                <strong>Uploaded On:</strong> {{ resume.uploaded_at }} <br>
                 <a href="{% url 'download_resume' resume.id %}" class="btn btn-primary">Download</a>
             </li>
         {% endfor %}
     </ul>
 {% else %}
-    <p>No resumes uploaded yet.</p>
+    <p>❌ No resumes uploaded yet.</p>
 {% endif %}
 
 <a href="{% url 'upload_resume' %}" class="btn btn-success">Upload New Resume</a>

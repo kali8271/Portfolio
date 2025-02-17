@@ -11,5 +11,6 @@ urlpatterns = [
     path("contact/", views.contact, name="contact"),
     path('resume/', views.upload_resume, name='resume_upload'),
     path('resume-list/', views.resume_list, name='resume'),
-    path('download-resume/<int:resume_id>/', views.download_resume, name='download_resume')
+    path('resume/download/<int:resume_id>/', views.download_resume, name='download_resume')
+
 ]

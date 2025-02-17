@@ -62,12 +62,14 @@ def download_resume(request, resume_id):
 User = get_user_model()
 
 def resume_list(request):
-    user_id = request.GET.get('user')
+    # user_id = request.GET.get('user')
 
-    if user_id:
-        user_instance = get_object_or_404(User, id=user_id) 
-        resumes = Resume.objects.filter(user=user_instance) 
-    else:
-        resumes = Resume.objects.all()
+    # if user_id:
+    #     user_instance = get_object_or_404(User, id=user_id) 
+    #     resumes = Resume.objects.filter(user=user_instance) 
+    # else:
+    #     resumes = Resume.objects.all()
 
-    return render(request, "resume_list.html", {"resumes": resumes})
+    resumes = Resume.objects.all()
+    print("Resumes Retrieved:", resumes)
+    return render(request, "resume.html", {"resumes": resumes})
