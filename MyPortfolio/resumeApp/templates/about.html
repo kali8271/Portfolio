@@ -28,11 +28,70 @@
 
     <div class="d-flex justify-content-around align-items-center">
         {% for tech in tech_stack %}
-            <img src="{{ tech.image.url }}" width="70" height="70" alt="{{ tech.name }} Logo" class="img-fluid">
+            <div class="tech-item" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ tech.name }}">
+                <img src="{{ tech.image.url }}" width="70" height="70" alt="{{ tech.name }} Logo" class="img-fluid tech-image">
+            </div>
         {% empty %}
             <p class="text-center text-light">No technologies added yet.</p>
         {% endfor %}
     </div>
 </div>
+
+<!-- Tooltip Initialization -->
+<script>
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+</script>
+
+<style>
+    .tech-item {
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        margin: 0 10px;
+        border-radius: 50%;
+        padding: 10px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .tech-image {
+        border-radius: 50%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .tech-item:hover .tech-image {
+        transform: scale(1.2);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .tech-item:hover {
+        background: linear-gradient(45deg, #4fffb0, #2b93ff);
+        transform: translateY(-10px);
+    }
+
+    .tech-item:hover .tech-image {
+        box-shadow: 0 0 15px 2px rgba(0, 255, 255, 0.5);
+    }
+
+    .tech-item::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .tech-item:hover::after {
+        opacity: 1;
+    }
+</style>
+
+
 
 {% endblock content1 %}
