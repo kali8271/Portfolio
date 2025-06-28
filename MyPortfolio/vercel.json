@@ -11,14 +11,6 @@
     "buildCommand": "bash build_files.sh",
     "routes": [
         {
-            "src": "/static/(.*)",
-            "dest": "/staticfiles/$1"
-        },
-        {
-            "src": "/media/(.*)",
-            "dest": "/media/$1"
-        },
-        {
             "src": "/(.*)",
             "dest": "MyPortfolio/wsgi.py"
         }

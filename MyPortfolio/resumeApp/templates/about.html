@@ -8,7 +8,7 @@
             {% if about.profile_image %}
                 <img src="{{ about.profile_image.url }}" alt="Profile Image" class="about_image rounded-circle">
             {% else %}
-                <img src="{% static 'profile_images/default.jpg' %}" alt="Default Image" class="about_image rounded-circle">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=220&h=220&fit=crop&crop=face" alt="Profile Image" class="about_image rounded-circle">
             {% endif %}
         {% endfor %}
     </div>
