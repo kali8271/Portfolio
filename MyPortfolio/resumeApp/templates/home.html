@@ -2,35 +2,30 @@
 {% load static %}
 {% block content1 %}
 
-<div class="row my-5">
-  <div class="col-12 d-flex justify-content-center align-items-center ">
-    <div class="circular-image-container">
-      <!-- Replacing with CDN URL for image -->
-      <img class="circular-image" src=" {% static 'images/k3.jpeg' %}" alt="Image">
+<div class="row my-5 justify-content-center align-items-center">
+  <div class="col-12 d-flex justify-content-center align-items-center flex-column">
+    <div class="circular-image-container mb-3 fade-in-up" style="animation-delay:0s;">
+      <img class="circular-image" src="{% static 'images/k2.jpeg' %}" alt="Profile image of Kalimullah Ansari" loading="lazy">
+    </div>
+    <h4 class="title fade-in-up" style="animation-delay:0.2s;">Hi, my name is</h4>
+    <div class="name fade-in-up" style="animation-delay:0.4s;">
+      <h1>Kalimullah Ansari</h1>
+    </div>
+    <p class="mt-2 fade-in-up" style="animation-delay:0.6s;max-width: 500px; margin: 0 auto; color: #ccc;">
+      I am a passionate software developer with experience in building web applications using Django, Python, and modern web technologies. I love solving problems and learning new things every day.
+    </p>
+    <a href="/media/resumes/resume_.pdf" class="btn btn-success mt-3 fade-in-up" style="animation-delay:0.8s;" target="_blank">Download Resume</a>
+    <div class="d-flex justify-content-center align-items-center mt-4 gap-3 fade-in-up" style="animation-delay:1s;">
+      <!-- LinkedIn icon -->
+      <a href="https://www.linkedin.com/in/kalimullah-ansari-397680250/" target="_blank" class="social-link">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/linkedin.svg" alt="LinkedIn profile" width="36" height="36" loading="lazy">
+      </a>
+      <!-- GitHub icon -->
+      <a href="https://github.com/kali8271" target="_blank" class="social-link">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/github.svg" alt="GitHub profile" width="36" height="36" loading="lazy">
+      </a>
     </div>
   </div>
-
-  <div class="col-12 text-center mt-3">
-    <h4 class="title"> Hi, my name is </h4>
-      <div class="name">
-        <h1> Kalimullah Ansari </h1>
-        <p></p>
-      </div>
-  </div>
-
-  <div class="col-12 text-center mt-3">
-    <div class="col-12 d-flex justify-content-center align-items-center ">
-        <!-- LinkedIn icon -->
-        <a href="https://www.linkedin.com/in/kalimullah-ansari-397680250/" target="_blank" class="ms-3">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/linkedin.svg" alt="linkedin" width="50" height="50" class="social_links">
-        </a>
-
-        <!-- GitHub icon -->
-        <a href="https://github.com/kali8271" target="_blank" class="ms-3">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/github.svg" alt="github" width="50" height="50" class="social_links">
-        </a>
-    </div>
 </div>
 
-</div>
 {% endblock content1 %}

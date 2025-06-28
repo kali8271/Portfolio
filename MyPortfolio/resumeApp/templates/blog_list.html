@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block extra_head %}
+<link rel="alternate" type="application/rss+xml" title="RSS" href="/blog/feed/" />
+{% endblock %}
+{% block content1 %}
+<div class="container my-4">
+  <h2 class="mb-4">Blog & Updates <a href="/blog/feed/" title="RSS Feed"><i class="bi bi-rss-fill" style="color:#ff6600;"></i></a></h2>
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for post in posts %}
+      <div class="col">
+        <div class="card h-100">
+          {% if post.image %}
+            <img src="{{ post.image.url }}" class="card-img-top" alt="Blog post image for {{ post.title }}" loading="lazy">
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">
+              <a href="{% url 'blog_detail' post.id %}">{{ post.title }}</a>
+            </h5>
+            <p class="card-text text-muted" style="font-size: 0.9em;">{{ post.date_posted|date:'M d, Y' }}</p>
+            <p class="card-text">{{ post.content|truncatewords:30 }}</p>
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <p>No blog posts yet.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock content1 %} 

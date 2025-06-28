@@ -18,3 +18,26 @@ class AboutAdmin(admin.ModelAdmin):
 admin.site.register(About, AboutAdmin)
 admin.site.register(TechStack)
 admin.site.register(Resume)
+
+class BlogPostAdmin(admin.ModelAdmin):
+    list_display = ('title', 'date_posted', 'image_tag')
+    search_fields = ('title', 'content')
+    list_filter = ('date_posted',)
+
+    def image_tag(self, obj):
+        if obj.image:
+            return format_html('<img src="{}" width="60" style="object-fit:cover;" />', obj.image.url)
+        return '-'
+    image_tag.short_description = 'Image'
+
+class ResumeAdmin(admin.ModelAdmin):
+    list_display = ('user', 'resume_file')
+    search_fields = ('user__username',)
+
+admin.site.unregister(Resume)
+admin.site.register(BlogPost, BlogPostAdmin)
+admin.site.register(Resume, ResumeAdmin)
+
+admin.site.register(Comment)
+
+admin.site.register(Testimonial)

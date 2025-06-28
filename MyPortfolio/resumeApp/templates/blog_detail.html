@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content1 %}
+<div class="container my-4">
+  <a href="{% url 'blog_list' %}" class="btn btn-link mb-3">&larr; Back to Blog</a>
+  <div class="card mb-4">
+    {% if post.image %}
+      <img src="{{ post.image.url }}" class="card-img-top" alt="Blog post image for {{ post.title }}" loading="lazy">
+    {% endif %}
+    <div class="card-body">
+      <h2 class="card-title">{{ post.title }}</h2>
+      <p class="text-muted" style="font-size: 0.9em;">{{ post.date_posted|date:'M d, Y' }}</p>
+      <div class="card-text">{{ post.content|linebreaks }}</div>
+    </div>
+  </div>
+  <div class="mb-4">
+    <h4>Comments</h4>
+    {% for comment in comments %}
+      <div class="border rounded p-2 mb-2">
+        <strong>{{ comment.name }}</strong> <span class="text-muted" style="font-size:0.9em;">{{ comment.created_at|date:'M d, Y H:i' }}</span>
+        <div>{{ comment.content|linebreaks }}</div>
+      </div>
+    {% empty %}
+      <p>No comments yet. Be the first to comment!</p>
+    {% endfor %}
+  </div>
+  <div class="mb-4">
+    <h4>Leave a Comment</h4>
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} mt-2">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+    <form method="post" novalidate>
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary">Post Comment</button>
+    </form>
+  </div>
+</div>
+{% endblock content1 %} 
