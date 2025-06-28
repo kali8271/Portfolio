@@ -8,11 +8,20 @@
             }
         }
     ],
-    "buildCommand": "bash build_files.sh",
+    "buildCommand": "python build_files.py",
     "routes": [
+        {
+            "src": "/static/(.*)",
+            "dest": "/static/$1"
+        },
         {
             "src": "/(.*)",
             "dest": "MyPortfolio/wsgi.py"
         }
-    ]
+    ],
+    "functions": {
+        "MyPortfolio/wsgi.py": {
+            "maxDuration": 30
+        }
+    }
 }
